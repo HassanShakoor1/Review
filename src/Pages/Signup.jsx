@@ -52,7 +52,7 @@ function Signup() {
     };
 
     return (
-        <div className='w-[100vw]  h-[100%]'>
+        <div className='w-[100vw]  h-[100vh]'>
             <div className='flex justify-between '>
                 <img className='h-[100vh] hidden lg:block' src={left} alt="left" />
 

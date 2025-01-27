@@ -221,7 +221,7 @@ function Profilesection() {
                 {/* Slider Content */}
                 <Slide direction="up" in={checked} mountOnEnter unmountOnExit>
                     <div className="fixed inset-0 bg-[transparent] flex justify-center items-center z-50">
-                        <div className="bg-white p-6 rounded-md w-[90%] h-full max-w-full max-h-full overflow-auto relative">
+                        <div className="bg-white p-6 rounded-md w-full h-full max-w-full max-h-full overflow-auto relative">
                             {/* Close Button */}
                             <button
                                 onClick={() => setChecked(false)}
@@ -235,7 +235,7 @@ function Profilesection() {
                             {/* Cover Image Selection */}
                             <div className="mb-6">
 
-                                <div className="relative w-[60%] rounded-[30px] m-auto h-[40vh] mb-4">
+                                <div className="relative sm:w-[60%] w-[90%] h-[300px] rounded-[30px] m-auto  mb-4">
                                     <img
                                         src={coverImage}
                                         alt="Cover Preview"
