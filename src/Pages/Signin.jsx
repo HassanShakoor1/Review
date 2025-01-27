@@ -9,7 +9,7 @@ import Mainbtn from '../Component/Mainbtn';
 function Signin() {
     return (
         <div className='w-[100%] h-[100%]'>
-            <div className='flex justify-between'>
+            <div className='flex sm:justify-between'>
                 <img className='hidden lg:block' src={left} alt="left" />
 
                 <div className="flex flex-col items-center p-2 sm:p-0 m-auto mt-[130px] gap-3">

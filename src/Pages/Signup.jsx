@@ -53,7 +53,7 @@ function Signup() {
 
     return (
         <div className='w-[100%] h-[100%]'>
-            <div className='flex justify-between'>
+            <div className='flex sm:justify-between'>
                 <img className='h-[100vh] hidden lg:block' src={left} alt="left" />
 
                 <div className="flex flex-col items-center p-3 m-auto mt-[130px] gap-3">
