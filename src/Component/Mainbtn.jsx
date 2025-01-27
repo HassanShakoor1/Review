@@ -5,13 +5,10 @@ function Mainbtn({ text, email, password }) {
     const navigate = useNavigate(); // Initialize navigate function
 
     const handleClick = () => {
-        // Check if email and password are valid
-        if (email && password) {
-            // Navigate to the home page when the button is clicked
-            navigate("/home");
-        } else {
-            alert('Please fill in both email and password');
-        }
+
+        navigate("/home");
+
+
     };
 
     return (

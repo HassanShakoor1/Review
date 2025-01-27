@@ -10,14 +10,14 @@ function App() {
     <Router>
       <Routes>
         {/* Route for Sign Up page */}
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/" element={<Signup />} />
 
         {/* Route for Sign In page */}
         <Route path="/signin" element={<Signin />} />
         <Route path="/password" element={<Changepass />} />
 
         {/* Optional: Add a route for Home or fallback route */}
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
 
         {/* Optional: Add a "Page Not Found" route */}
 

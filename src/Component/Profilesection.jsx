@@ -3,20 +3,22 @@ import { FaCamera } from 'react-icons/fa'; // Importing camera icon
 import { FaCog } from 'react-icons/fa'; // Importing settings icon
 import { FaGoogle } from "react-icons/fa";
 import { FaEye, FaShareAlt, FaEdit, FaRegStickyNote, FaQrcode } from 'react-icons/fa'; // Importing required icons
-import Svg from './Svg';
+import Svg from './Svg'
+import { Box, FormControlLabel, Switch, Slide } from "@mui/material";
+;
 import Eye from "../images/Eye.png";
 import share from "../images/share.png";
 import edit from "../images/edit.png";
 import setting from "../images/setting.svg";
 function Profilesection() {
-    const [isSliderOpen, setIsSliderOpen] = useState(false);
+
     const [coverImage, setCoverImage] = useState("https://via.placeholder.com/400x150");
     const [profileImage, setProfileImage] = useState("https://via.placeholder.com/100");
     const [name, setName] = useState("Hubble 42 Inc");
     const [email, setEmail] = useState("johndoe@example.com");
     const [contact, setContact] = useState("03114453396");
 
-
+    const [checked, setChecked] = useState(false);
     useEffect(() => {
         const mydata = localStorage.getItem("profileData");
         if (mydata) {
@@ -31,7 +33,7 @@ function Profilesection() {
     }, []);
 
 
-
+    const handleChange = () => setChecked(!checked);
     // Function to save data to localStorage
     const saveDataToLocalStorage = () => {
         const profileData = {
@@ -45,9 +47,12 @@ function Profilesection() {
         alert("Profile data saved to local storage!");
     };
 
+    const handleButtonClick = () => {
+        // Toggling the checked state when the button is clicked
+        setChecked((prevChecked) => !prevChecked);
+    };
 
-    const handleButtonClick = () => setIsSliderOpen(true);
-    const closeSlider = () => setIsSliderOpen(false);
+
 
     // Handle Image Change
     const handleImageChange = (e, setImage) => {
@@ -112,6 +117,7 @@ function Profilesection() {
                         </div>
                         <button
                             onClick={handleButtonClick}
+                            checked={checked} onChange={handleChange}
                             className="absolute sm:right-[40px] right-[10px] sm:top-[295px] top-[220px] bg-gray-100 text-[grey] w-[170px] h-[50px] rounded-[13px] border border-[#D7D7D7] shadow flex items-center justify-center gap-2"
                         >
                             <span className="text-4xl font-[100] text-[#B9B9B9]">+</span>
@@ -210,130 +216,139 @@ function Profilesection() {
 
             </div>
 
-            {/* Slider for editing */}
-            {isSliderOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 transition-all">
-                    <div className="bg-white p-6 rounded-md w-[80%] max-w-[600px] transition-all">
-                        <h2 className="text-2xl font-bold text-gray-700 mb-4">Edit Profile</h2>
 
-                        {/* Cover Image Selection */}
-                        <div className="mb-4">
-                            <label htmlFor="coverImage" className="block text-gray-700">Cover Image</label>
-                            <div className="relative w-full h-[200px] mb-4">
-                                <img
-                                    src={coverImage}
-                                    alt="Cover Preview"
-                                    className="w-full h-full object-cover rounded-md mb-2"
-                                />
-                                {/* Camera Icon for Cover Image */}
-                                {coverImage === "https://via.placeholder.com/400x150" && (
-                                    <label htmlFor="coverImage" className="absolute inset-0 flex justify-center items-center cursor-pointer bg-black bg-opacity-50">
-                                        <FaCamera className="text-white text-4xl" />
-                                        <input
-                                            type="file"
-                                            id="coverImage"
-                                            onChange={(e) => handleImageChange(e, setCoverImage)}
-                                            className="absolute inset-0 opacity-0 cursor-pointer"
-                                        />
-                                    </label>
-                                )}
-                                {/* Cross Button to Remove Cover Image */}
-                                {coverImage !== "https://via.placeholder.com/400x150" && (
-                                    <button
-                                        onClick={() => setCoverImage("https://via.placeholder.com/400x150")}
-                                        className="absolute  w-[20px] flex items-center justify-center h-[20px] top-2 right-2 bg-black text-white rounded-full p-1"
-                                    >
-                                        &times;
-                                    </button>
-                                )}
-                            </div>
-                        </div>
-
-                        {/* Profile Image Selection */}
-                        <div className="mb-4">
-                            <label htmlFor="profileImage" className="block text-gray-700">Profile Image</label>
-                            <div className="relative w-[120px] h-[120px] mb-4">
-                                <img
-                                    src={profileImage}
-                                    alt="Profile Preview"
-                                    className="w-full h-full object-cover rounded-[25px] mb-2"
-                                />
-                                {/* Camera Icon for Profile Image */}
-                                {profileImage === "https://via.placeholder.com/100" && (
-                                    <label htmlFor="profileImage" className="absolute inset-0 flex justify-center items-center cursor-pointer bg-black bg-opacity-50">
-                                        <FaCamera className="text-white text-4xl" />
-                                        <input
-                                            type="file"
-                                            id="profileImage"
-                                            onChange={(e) => handleImageChange(e, setProfileImage)}
-                                            className="absolute inset-0 opacity-0 cursor-pointer"
-                                        />
-                                    </label>
-                                )}
-                                {/* Cross Button to Remove Profile Image */}
-                                {profileImage !== "https://via.placeholder.com/100" && (
-                                    <button
-                                        onClick={() => setProfileImage("https://via.placeholder.com/100")}
-                                        className="absolute w-[20px] flex items-center justify-center h-[20px] top-2 right-2 bg-black text-white rounded-full p-1"
-                                    >
-                                        &times;
-                                    </button>
-                                )}
-                            </div>
-                        </div>
-
-                        {/* User Data */}
-                        <div className="mb-4">
-                            <label htmlFor="name" className="block text-gray-700">Name</label>
-                            <input
-                                type="text"
-                                id="name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                className="mt-2 w-full p-2 text-sm border border-gray-300 rounded-md"
-                            />
-                        </div>
-
-                        <div className="mb-4">
-                            <label htmlFor="email" className="block text-gray-700">Email</label>
-                            <input
-                                type="email"
-                                id="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                className="mt-2 w-full p-2 text-sm border border-gray-300 rounded-md"
-                            />
-                        </div>
-
-                        <div className="mb-4">
-                            <label htmlFor="contact" className="block text-gray-700">Contact</label>
-                            <input
-                                type="text"
-                                id="contact"
-                                value={contact}
-                                onChange={(e) => setContact(e.target.value)}
-                                className="mt-2 w-full p-2 text-sm border border-gray-300 rounded-md"
-                            />
-                        </div>
-
-                        <div className="flex justify-between">
+            <Box sx={{ position: "relative", zIndex: 1 }}>
+                {/* Slider Content */}
+                <Slide direction="up" in={checked} mountOnEnter unmountOnExit>
+                    <div className="fixed inset-0 bg-[transparent] flex justify-center items-center z-50">
+                        <div className="bg-white p-6 rounded-md w-[90%] h-full max-w-full max-h-full overflow-auto relative">
+                            {/* Close Button */}
                             <button
-                                onClick={closeSlider}
-                                className="bg-gray-500 text-white p-2 rounded-md"
+                                onClick={() => setChecked(false)}
+                                className="absolute top-4 right-4 text-3xl text-gray-700 hover:text-gray-900"
                             >
-                                Close
-                            </button>
-                            <button
-                                onClick={saveDataToLocalStorage}
-                                className="bg-green-500 text-white p-2 rounded-md"
-                            >
-                                Save Changes
+                                &times;
                             </button>
 
+                            <h2 className="text-2xl font-bold text-gray-700 mb-6">Edit Profile</h2>
+
+                            {/* Cover Image Selection */}
+                            <div className="mb-6">
+
+                                <div className="relative w-[60%] rounded-[30px] m-auto h-[40vh] mb-4">
+                                    <img
+                                        src={coverImage}
+                                        alt="Cover Preview"
+                                        className="w-[100%] m-auto h-full object-cover rounded-[30px] mb-2"
+                                    />
+                                    {coverImage === "https://via.placeholder.com/400x150" && (
+                                        <label
+                                            htmlFor="coverImage"
+                                            className="absolute inset-0 flex justify-center rounded- items-center cursor-pointer bg-black bg-opacity-50"
+                                        >
+                                            <FaCamera className="text-white text-4xl" />
+                                            <input
+                                                type="file"
+                                                id="coverImage"
+                                                onChange={(e) => handleImageChange(e, setCoverImage)}
+                                                className="absolute inset-0 opacity-0 cursor-pointer"
+                                            />
+                                        </label>
+                                    )}
+                                    {coverImage !== "https://via.placeholder.com/400x150" && (
+                                        <button
+                                            onClick={() => setCoverImage("https://via.placeholder.com/400x150")}
+                                            className="absolute w-[20px] flex items-center justify-center h-[20px] top-2 right-2 bg-black text-white rounded-full p-1"
+                                        >
+                                            &times;
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* Profile Image Selection */}
+                            <div>
+
+                                <div className="relative w-[160px] h-[160px] top-[-100px]  rounded-[25px] m-auto mb-4">
+                                    <img
+                                        src={profileImage}
+                                        alt="Profile Preview"
+                                        className="w-full h-full object-cover rounded-[25px] mb-2"
+                                    />
+                                    {profileImage === "https://via.placeholder.com/100" && (
+                                        <label
+                                            htmlFor="profileImage"
+                                            className="absolute inset-0 flex justify-center items-center  rounded-[25px] cursor-pointer bg-black bg-opacity-50"
+                                        >
+                                            <FaCamera className="text-white text-4xl" />
+                                            <input
+                                                type="file"
+                                                id="profileImage"
+                                                onChange={(e) => handleImageChange(e, setProfileImage)}
+                                                className="absolute inset-0 opacity-0 cursor-pointer"
+                                            />
+                                        </label>
+                                    )}
+                                    {profileImage !== "https://via.placeholder.com/100" && (
+                                        <button
+                                            onClick={() => setProfileImage("https://via.placeholder.com/100")}
+                                            className="absolute w-[20px] flex items-center justify-center h-[20px] top-2 right-2 bg-black text-white rounded-full p-1"
+                                        >
+                                            &times;
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* User Data */}
+                            <div>
+                                <label htmlFor="name" className="block text-gray-700 text-lg">Name</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    className="mt-2 w-full p-3 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                />
+                            </div>
+
+                            <div className="mb-6">
+                                <label htmlFor="email" className="block text-gray-700 text-lg">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    className="mt-2 w-full p-3 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                />
+                            </div>
+
+                            <div className="mb-6">
+                                <label htmlFor="contact" className="block text-gray-700 text-lg">Contact</label>
+                                <input
+                                    type="text"
+                                    id="contact"
+                                    value={contact}
+                                    onChange={(e) => setContact(e.target.value)}
+                                    className="mt-2 w-full p-3 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                />
+                            </div>
+
+                            {/* Save Button */}
+                            <div className="flex justify-center mt-6">
+                                <button
+                                    onClick={saveDataToLocalStorage}
+                                    className="bg-green-500 text-white p-4 rounded-md text-lg hover:bg-green-600 transition duration-300"
+                                >
+                                    Save Changes
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
+                </Slide>
+            </Box>
+
+
 
         </div>
     );

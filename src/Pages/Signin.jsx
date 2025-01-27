@@ -10,9 +10,9 @@ function Signin() {
     return (
         <div className='w-[100%] h-[100%]'>
             <div className='flex justify-between'>
-                <img className='h-[100vh]' src={left} alt="left" />
+                <img className='hidden lg:block' src={left} alt="left" />
 
-                <div className="flex flex-col items-center mt-[130px] gap-3">
+                <div className="flex flex-col items-center p-2 sm:p-0 m-auto mt-[130px] gap-3">
                     <div className="flex items-center gap-3">
                         <img className="w-[50px] h-[50px]" src={logo} alt="logo" />
                         <h1 className="text-green-500 text-2xl font-bold">REVIEW COLLECTOR</h1>
@@ -37,7 +37,7 @@ function Signin() {
                     </div>
                 </div>
 
-                <img className='h-[100vh]' src={right} alt="right" />
+                <img className='hidden lg:block' src={right} alt="right" />
             </div>
         </div>
     );
