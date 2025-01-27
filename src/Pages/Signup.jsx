@@ -52,11 +52,11 @@ function Signup() {
     };
 
     return (
-        <div className='w-[100%] h-[100%]'>
-            <div className='flex sm:justify-between '>
+        <div className='w-[100vw]  h-[100%]'>
+            <div className='flex justify-between '>
                 <img className='h-[100vh] hidden lg:block' src={left} alt="left" />
 
-                <div className="flex flex-col items-center p-3 m-auto mt-[130px] gap-3">
+                <div className="flex flex-col items-center  m-auto mt-[130px] gap-3">
                     <div className="flex items-center gap-3">
                         <img className="w-[50px] h-[50px]" src={logo} alt="logo" />
                         <h1 className="text-green-500 text-2xl font-bold">REVIEW COLLECTOR</h1>
@@ -67,7 +67,7 @@ function Signup() {
 
                         <form onSubmit={handleSignup}>
                             <input
-                                className='w-[450px] bg-[#ededed] mt-[30px] h-[58px] border-2 border-[rgb(197, 197, 197)] rounded-[10px] outline-none p-2'
+                                className='w-[450px] m-2 bg-[#ededed] mt-[30px] h-[58px] border-2 border-[rgb(197, 197, 197)] rounded-[10px] outline-none p-2'
                                 placeholder='Please enter the name'
                                 type="text"
                                 name="name"

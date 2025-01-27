@@ -15,7 +15,7 @@ function Mainbtn({ text, email, password }) {
         <div>
             <div className='w-[400px] h-[55px]'>
                 <button
-                    className='w-[450px] mt-[40px] bg-[#01c849] text-xl text-white h-[55px] rounded-[10px] outline-none p-2'
+                    className='w-[450px] m-2 mt-[40px] bg-[#01c849] text-xl text-white h-[55px] rounded-[10px] outline-none p-2'
                     onClick={handleClick} // Add onClick event handler
                 >
                     {text}

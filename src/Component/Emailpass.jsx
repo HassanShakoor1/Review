@@ -61,7 +61,7 @@ function Emailpass() {
         <form onSubmit={handleSubmit}>
             <div>
                 <input
-                    className='w-[450px] mt-[20px] bg-[#ededed] h-[58px] border-2 border-[rgb(197, 197, 197)] rounded-[10px] outline-none p-2'
+                    className='w-[450px] mt-[20px] m-2 bg-[#ededed] h-[58px] border-2 border-[rgb(197, 197, 197)] rounded-[10px] outline-none p-2'
                     placeholder='Please enter the Email'
                     type="email"
                     value={email}
@@ -73,7 +73,7 @@ function Emailpass() {
 
             <div className="mt-1">
                 <input
-                    className='w-[450px] mt-[20px] bg-[#ededed] h-[58px] border-2 border-[rgb(197, 197, 197)] rounded-[10px] outline-none p-2'
+                    className='w-[450px] m-2 mt-[20px] bg-[#ededed] h-[58px] border-2 border-[rgb(197, 197, 197)] rounded-[10px] outline-none p-2'
                     placeholder='Please enter the Password'
                     type="password"
                     value={password}
