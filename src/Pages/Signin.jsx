@@ -8,36 +8,41 @@ import Mainbtn from '../Component/Mainbtn';
 
 function Signin() {
     return (
-        <div className='w-[100%] h-[100%]'>
-            <div className='flex sm:justify-between'>
-                <img className='hidden lg:block' src={left} alt="left" />
+        <div className=" w-full">
+            <div className="w-full h-screen overflow-hidden flex items-center justify-center">
+                {/* Left Image */}
+                <img className="h-full hidden lg:block flex-none" src={left} alt="left" />
 
-                <div className="flex flex-col items-center p-2 sm:p-0 m-auto mt-[130px] gap-3">
-                    <div className="flex items-center gap-3">
+                {/* Sign-in Form */}
+                <div className="flex-grow flex flex-col items-center sm:mt-[0px] p-3 mt-[100px]">
+                    <div className="flex items-center">
                         <img className="w-[50px] h-[50px]" src={logo} alt="logo" />
                         <h1 className="text-green-500 text-2xl font-bold">REVIEW COLLECTOR</h1>
                     </div>
                     <div className="mt-3">
                         <h3 className="text-lg text-[30px] text-center font-bold">Sign in</h3>
-                        <p className='mt-2 text-center text-[20px]'>Login to your Account</p>
+                        <p className="mt-2 text-center text-[20px]">Login to your Account</p>
 
-                        <Emailpass />
+                        <form className="md:w-[35vw] w-[90vw]">
+                            <Emailpass />
+                        </form>
 
-
-
-                        {/* Link to Sign Up page */}
-                        <div className=' w-[450px] items-center flex justify-between '>
+                        {/* Forgot Password Link */}
+                        <div className="w-[90%] m-auto mt-2 items-center flex justify-between">
                             <p></p>
-                            <p className=" pl-5 text-right">
-                                <Link to="/password" className="font-bold underline text-black-500">forgot password?</Link>
+                            <p className="pl-5 text-right">
+                                <Link to="/password" className="font-bold underline cursor-pointer text-black-500">
+                                    Forgot password?
+                                </Link>
                             </p>
                         </div>
-                        <Mainbtn text="Sign in" />
 
+                        <Mainbtn text="Sign in" />
                     </div>
                 </div>
 
-                <img className='hidden lg:block' src={right} alt="right" />
+                {/* Right Image */}
+                <img className="h-full hidden lg:block flex-none" src={right} alt="right" />
             </div>
         </div>
     );

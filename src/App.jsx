@@ -4,25 +4,31 @@ import Signup from './Pages/Signup';
 import Signin from './Pages/Signin';
 import Home from './Pages/Home';
 import Changepass from './Pages/Changepass';
+import MainContainer from './Component/MainContainer';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* Route for Sign Up page */}
-        <Route path="/" element={<Signup />} />
 
-        {/* Route for Sign In page */}
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/password" element={<Changepass />} />
+    <div className=" max-w-full flex justify-center  mx-auto">
+      <Router>
+        <Routes>
+          {/* Route for Sign Up page */}
+          <Route path="/" element={<MainContainer ><Signup /></MainContainer>} />
 
-        {/* Optional: Add a route for Home or fallback route */}
-        <Route path="/home" element={<Home />} />
+          {/* Route for Sign In page */}
+          <Route path="/signin" element={<MainContainer>  <Signin /></MainContainer>} />
 
-        {/* Optional: Add a "Page Not Found" route */}
+          <Route path="/password" element={<MainContainer> <Changepass /></MainContainer>} />
 
-      </Routes>
-    </Router>
+          {/* Optional: Add a route for Home or fallback route */}
+          <Route path="/home" element={<MainContainer><Home /></MainContainer>} />
+
+          {/* Optional: Add a "Page Not Found" route */}
+
+        </Routes>
+      </Router>
+    </div>
+
   );
 }
 

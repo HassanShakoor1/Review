@@ -92,6 +92,7 @@ function Profilesection() {
   return (
     <div className="w-full sm:py-8 py-0">
       <div>
+        {/* Container for Both Left and Right Sections */}
         <div className="flex flex-wrap justify-between w-[90%] m-auto lg:gap-0 sm:gap-10 sm:mt-[30px] ">
 
           <div className="lg:w-[48%] w-full bg-white shadow-md rounded-[90px] relative">
@@ -220,7 +221,7 @@ function Profilesection() {
         {/* Slider Content */}
         <Slide direction="up" in={checked} mountOnEnter unmountOnExit>
           <div className="fixed inset-0 bg-[transparent] flex justify-center items-center z-50">
-            <div className="bg-white p-6 rounded-md w-full h-full max-w-full max-h-full overflow-auto relative">
+            <div className="bg-white p-6 rounded-md w-full h-full max-w-[1440px] mx-auto overflow-auto relative">
               {/* Close Button */}
               <button
                 onClick={() => setChecked(false)}
@@ -233,7 +234,6 @@ function Profilesection() {
 
               {/* Cover Image Selection */}
               <div className="mb-6">
-
                 <div className="relative sm:w-[60%] w-[90%] h-[300px] rounded-[30px] m-auto  mb-4">
                   <img
                     src={coverImage}
@@ -243,7 +243,7 @@ function Profilesection() {
                   {coverImage === "https://via.placeholder.com/400x150" && (
                     <label
                       htmlFor="coverImage"
-                      className="absolute inset-0 flex justify-center rounded- items-center cursor-pointer bg-black bg-opacity-50"
+                      className="absolute inset-0 flex justify-center rounded-[30px] items-center cursor-pointer bg-black bg-opacity-50"
                     >
                       <FaCamera className="text-white text-4xl" />
                       <input
@@ -267,8 +267,7 @@ function Profilesection() {
 
               {/* Profile Image Selection */}
               <div>
-
-                <div className="relative w-[160px] h-[160px] top-[-100px]  rounded-[25px] m-auto mb-4">
+                <div className="relative w-[160px] sm:h-[18vh] h-[17vh] sm:top-[-100px] top-[0px] rounded-[25px] m-auto">
                   <img
                     src={profileImage}
                     alt="Profile Preview"
@@ -277,7 +276,7 @@ function Profilesection() {
                   {profileImage === "https://via.placeholder.com/100" && (
                     <label
                       htmlFor="profileImage"
-                      className="absolute inset-0 flex justify-center items-center  rounded-[25px] cursor-pointer bg-black bg-opacity-50"
+                      className="absolute inset-0 flex justify-center items-center rounded-[25px] cursor-pointer bg-black bg-opacity-50"
                     >
                       <FaCamera className="text-white text-4xl" />
                       <input
@@ -346,6 +345,7 @@ function Profilesection() {
           </div>
         </Slide>
       </Box>
+
 
 
 
