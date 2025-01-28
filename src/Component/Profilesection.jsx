@@ -92,7 +92,6 @@ function Profilesection() {
     return (
         <div className="w-full sm:py-8 py-0">
             <div>
-                {/* Container for Both Left and Right Sections */}
                 <div className="flex flex-wrap justify-between w-[90%] m-auto lg:gap-0 sm:gap-10 sm:mt-[30px] ">
 
                     <div className="lg:w-[48%] w-full bg-white shadow-md rounded-[90px] relative">
