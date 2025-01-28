@@ -5,7 +5,7 @@ import Profilesection from '../Component/Profilesection'
 
 function Home() {
     return (
-        <div>
+        <div className="w-[100%] h-[100%]">
             <Navbar />
             <Profilesection />
 
