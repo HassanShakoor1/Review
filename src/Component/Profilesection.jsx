@@ -267,7 +267,9 @@ function Profilesection() {
 
               {/* Profile Image Selection */}
               <div>
-                <div className="relative w-[160px] sm:h-[18vh] h-[17vh] sm:top-[-100px] top-[0px] rounded-[25px] m-auto">
+                <div className="relative w-[160px] sm:h-[18vh] h-[17vh] 2xl:h-[10vh] rounded-[25px] m-auto">
+
+
                   <img
                     src={profileImage}
                     alt="Profile Preview"
@@ -299,48 +301,52 @@ function Profilesection() {
               </div>
 
               {/* User Data */}
-              <div>
-                <label htmlFor="name" className="block text-gray-700 text-lg">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="mt-2 w-full p-3 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
+              <div className='w-[60%] flex justify-center flex-col m-auto'>
+                <div className='w-full] '>
+                  <label htmlFor="name" className="block text-gray-700 text-lg">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="mt-2 w-full p-3 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 "
+                  />
+                </div>
+
+                <div className="mb-6">
+                  <label htmlFor="email" className="block text-gray-700 text-lg">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="mt-2 w-full p-3 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2"
+                  />
+                </div>
+
+                <div className="mb-6">
+                  <label htmlFor="contact" className="block text-gray-700 text-lg">Contact</label>
+                  <input
+                    type="text"
+                    id="contact"
+                    value={contact}
+                    onChange={(e) => setContact(e.target.value)}
+                    className="mt-2 w-full p-3 text-sm border border-gray-300 rounded-md focus:outline-none  "
+                  />
+                </div>
+
+                {/* Save Button */}
+                <div className="flex justify-center mt-6">
+                  <button
+                    onClick={saveDataToLocalStorage}
+                    className="bg-green-500 text-white w-full p-4 rounded-md text-lg hover:bg-green-600 transition duration-300"
+                  >
+                    Save Changes
+
+                  </button>
+                </div>
               </div>
 
-              <div className="mb-6">
-                <label htmlFor="email" className="block text-gray-700 text-lg">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="mt-2 w-full p-3 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="contact" className="block text-gray-700 text-lg">Contact</label>
-                <input
-                  type="text"
-                  id="contact"
-                  value={contact}
-                  onChange={(e) => setContact(e.target.value)}
-                  className="mt-2 w-full p-3 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-
-              {/* Save Button */}
-              <div className="flex justify-center mt-6">
-                <button
-                  onClick={saveDataToLocalStorage}
-                  className="bg-green-500 text-white p-4 rounded-md text-lg hover:bg-green-600 transition duration-300"
-                >
-                  Save Changes
-                </button>
-              </div>
             </div>
           </div>
         </Slide>
