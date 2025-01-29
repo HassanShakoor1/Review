@@ -9,7 +9,7 @@ import MainContainer from './Component/MainContainer';
 function App() {
   return (
 
-    <div className="max-w-[1400px]">
+    <div className=" max-w-full flex justify-center  mx-auto">
       <Router>
         <Routes>
           {/* Route for Sign Up page */}

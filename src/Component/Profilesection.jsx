@@ -221,7 +221,7 @@ function Profilesection() {
         {/* Slider Content */}
         <Slide direction="up" in={checked} mountOnEnter unmountOnExit>
           <div className="fixed inset-0 bg-[transparent] flex justify-center items-center z-50">
-            <div className="bg-white p-6 rounded-md w-full h-full max-w-full max-h-full overflow-auto relative">
+            <div className="bg-white p-6 rounded-md w-full h-full max-w-[1440px] mx-auto overflow-auto relative">
               {/* Close Button */}
               <button
                 onClick={() => setChecked(false)}
@@ -233,13 +233,12 @@ function Profilesection() {
               <h2 className="text-2xl font-bold text-gray-700 mb-6">Edit Profile</h2>
 
               {/* Cover Image Selection */}
-              <div >
-
-                <div className="relative sm:w-[60vw] w-[90vw] sm:h-[30vh] h-[20vh] rounded-[30px] m-auto  mb-4">
+              <div className="mb-6">
+                <div className="relative sm:w-[60%] w-[90%] h-[300px] rounded-[30px] m-auto  mb-4">
                   <img
                     src={coverImage}
                     alt="Cover Preview"
-                    className="w-full m-auto h-full object-cover rounded-[30px] mb-2"
+                    className="w-[100%] m-auto h-full object-cover rounded-[30px] mb-2"
                   />
                   {coverImage === "https://via.placeholder.com/400x150" && (
                     <label
@@ -268,8 +267,9 @@ function Profilesection() {
 
               {/* Profile Image Selection */}
               <div>
+                <div className="relative w-[160px] sm:h-[18vh] h-[17vh] 2xl:h-[10vh] rounded-[25px] m-auto">
 
-                <div className="relative w-[160px] sm:h-[18vh] h-[17vh] sm:top-[-100px] top-[0px]  rounded-[25px] m-auto ">
+
                   <img
                     src={profileImage}
                     alt="Profile Preview"
@@ -278,7 +278,7 @@ function Profilesection() {
                   {profileImage === "https://via.placeholder.com/100" && (
                     <label
                       htmlFor="profileImage"
-                      className="absolute inset-0 flex justify-center items-center  rounded-[25px] cursor-pointer bg-black bg-opacity-50"
+                      className="absolute inset-0 flex justify-center items-center rounded-[25px] cursor-pointer bg-black bg-opacity-50"
                     >
                       <FaCamera className="text-white text-4xl" />
                       <input
@@ -301,51 +301,52 @@ function Profilesection() {
               </div>
 
               {/* User Data */}
-              <div className="flex flex-col items-center">
-                <div className="sm:w-[50%] w-[95%] mb-6">
-                  <label htmlFor="name" className="block ml-3 text-gray-700 text-lg">Name</label>
+              <div className='w-[60%] flex justify-center flex-col m-auto'>
+                <div className='w-full] '>
+                  <label htmlFor="name" className="block text-gray-700 text-lg">Name</label>
                   <input
                     type="text"
                     id="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="mt-2 w-full p-4 text-sm border border-gray-300 rounded-[15px] focus:outline-none focus:ring-2"
+                    className="mt-2 w-full p-3 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 "
                   />
                 </div>
 
-                <div className="sm:w-[50%] w-[95%] mb-6">
-                  <label htmlFor="email" className="block  ml-3 text-gray-700 text-lg">Email</label>
+                <div className="mb-6">
+                  <label htmlFor="email" className="block text-gray-700 text-lg">Email</label>
                   <input
                     type="email"
                     id="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="mt-2 w-full p-4 text-sm border border-gray-300  rounded-[15px] focus:outline-none focus:ring-2 "
+                    className="mt-2 w-full p-3 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2"
                   />
                 </div>
 
-                <div className="sm:w-[50%] w-[95%] mb-6">
-                  <label htmlFor="contact" className="block ml-3 text-gray-700 text-lg">Contact</label>
+                <div className="mb-6">
+                  <label htmlFor="contact" className="block text-gray-700 text-lg">Contact</label>
                   <input
                     type="text"
                     id="contact"
                     value={contact}
                     onChange={(e) => setContact(e.target.value)}
-                    className="mt-2 w-full p-4 text-sm border border-gray-300 rounded-[15px] focus:outline-none focus:ring-2"
+                    className="mt-2 w-full p-3 text-sm border border-gray-300 rounded-md focus:outline-none  "
                   />
+                </div>
+
+                {/* Save Button */}
+                <div className="flex justify-center mt-6">
+                  <button
+                    onClick={saveDataToLocalStorage}
+                    className="bg-green-500 text-white w-full p-4 rounded-md text-lg hover:bg-green-600 transition duration-300"
+                  >
+                    Save Changes
+
+                  </button>
                 </div>
               </div>
 
-
-              {/* Save Button */}
-              <div className="flex sm:w-[50%] w-[95%] m-auto justify-center mt-6">
-                <button
-                  onClick={saveDataToLocalStorage}
-                  className="bg-green-500 w-full text-white p-4 rounded-[15px] text-2xl hover:bg-green-600 transition duration-300"
-                >
-                  Save Changes
-                </button>
-              </div>
             </div>
           </div>
         </Slide>
@@ -353,7 +354,8 @@ function Profilesection() {
 
 
 
-    </div >
+
+    </div>
   );
 }
 

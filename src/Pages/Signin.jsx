@@ -8,13 +8,13 @@ import Mainbtn from '../Component/Mainbtn';
 
 function Signin() {
     return (
-        <div className=" w-[100vw]">
-            <div className="w-full h-screen overflow-hidden flex">
+        <div className=" w-full">
+            <div className="w-full h-screen overflow-hidden flex items-center justify-center">
                 {/* Left Image */}
                 <img className="h-full hidden lg:block flex-none" src={left} alt="left" />
 
                 {/* Sign-in Form */}
-                <div className="flex-grow flex flex-col items-center sm:mt-[130px] mt-[100px]">
+                <div className="flex-grow flex flex-col items-center sm:mt-[0px] p-3 mt-[100px]">
                     <div className="flex items-center">
                         <img className="w-[50px] h-[50px]" src={logo} alt="logo" />
                         <h1 className="text-green-500 text-2xl font-bold">REVIEW COLLECTOR</h1>
@@ -43,8 +43,8 @@ function Signin() {
 
                 {/* Right Image */}
                 <img className="h-full hidden lg:block flex-none" src={right} alt="right" />
-            </div >
-        </div >
+            </div>
+        </div>
     );
 }
 

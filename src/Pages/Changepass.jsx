@@ -8,13 +8,13 @@ import Mainbtn from '../Component/Mainbtn'; // Assuming this is used for the mai
 
 function Changepass() {
     return (
-        <div className=" w-[100vw]">
-            <div className="w-full h-screen overflow-hidden flex">
+        <div className=" w-full">
+            <div className="w-full h-screen overflow-hidden flex items-center justify-center">
                 {/* Left Image */}
                 <img className="h-full hidden lg:block flex-none" src={left} alt="left" />
 
                 {/* Change Password Form */}
-                <div className="flex-grow flex flex-col items-center sm:mt-[130px] mt-[100px] p-2 sm:p-0">
+                <div className="flex-grow flex flex-col items-center sm:mt-[0px] mt-[100px] p-3">
                     <div className="flex items-center gap-3">
                         <img className="w-[50px] h-[50px]" src={logo} alt="logo" />
                         <h1 className="text-green-500 text-2xl font-bold">REVIEW COLLECTOR</h1>
